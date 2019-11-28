@@ -1,0 +1,10 @@
+.pages-list {
+    display: flex;
+    justify-content: center;
+   
+}
+
+.page-item {
+    padding: 10px;
+    cursor: pointer;
+}

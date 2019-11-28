@@ -1,0 +1,25 @@
+
+
+
+.users-main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+  
+  .users-main-buttons {
+    text-align: right;
+    display: flex;
+    align-items: right;
+  
+  }
+  
+  .button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .users-main-right{
+    position: relative;
+  }
+  
+  

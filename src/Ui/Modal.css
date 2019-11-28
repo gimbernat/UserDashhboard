@@ -1,0 +1,68 @@
+.Modal {
+    text-align: left;
+    z-index: 500;
+    background-color: rgb(247, 247, 247);
+    width: 40%;
+    height: 85%;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.171);
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+  
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+
+
+    grid-template-rows: 90% 10%;
+  }
+
+  
+  .modal-top {
+  
+
+  }
+  .modal-container {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    column-gap: 30px;
+    height: 50vh;
+   
+  }
+
+  
+  @media (max-width: 1200px) {
+    .modal-container  {
+      display: block;
+    }
+    .Modal {
+      width: 90%;
+      position: fixed;
+      height: 70vh;
+      
+      /*  transform: translate(-50%, -50%); */
+    }
+
+  }
+  
+
+
+  .modal-picture-section {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      
+  }
+
+
+  .modal-form {
+      display: grid;
+      grid-template-columns: 50% 50%;
+  }
+
+
+  .modal-bottom {
+      /* background:black; */
+      text-align: right;
+  }
