@@ -21,7 +21,6 @@ export class UserCard extends Component {
         <React.Fragment>
           <Backdrop click={this.openModal} />
           <Modal
-
             editMode = {true}
             editUserSubmit={this.props.editUserSubmit}
             openModal={this.props.openModal}

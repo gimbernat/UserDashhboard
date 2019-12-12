@@ -3,8 +3,7 @@ import "./Modal.css";
 
 export default class Modal extends Component {
   state = {
-    isOpen: this.props.editMode,
-    editMode: false, 
+    editMode: this.props.editMode, 
     userData: {
       name: "",
       fathersLastName: "",
@@ -44,7 +43,7 @@ export default class Modal extends Component {
     // this.props.openModal()
   }
   render() {
-
+    console.log("Edit Mode: "+this.state.editMode)
     const submitMethod = this.state.editMode ? this.editUserSubmit : this.submitForm;
     return (
       <div className="Modal container ">

@@ -52,19 +52,19 @@ class Users extends Component {
     searchTerm: "",
     users: this.mappedUsers,
     filteredUsers: this.mappedUsers,
-    modalOpen: false,
+
     activeCategory: "",
     currentPage: 1,
     usersPerPage: 8
   };
 
-  openModal = () => {
-    this.setState({ modalOpen: !this.state.modalOpen });
-  };
-  closeModal = () => {
-    console.log("closing all the shit");
-    this.setState({ modalOpens: false });
-  };
+  // openModal = () => {
+  //   this.setState({ modalOpen: !this.state.modalOpen });
+  // };
+  // closeModal = () => {
+  //   console.log("closing all the shit");
+  //   this.setState({ modalOpens: false });
+  // };
 
   handleInputChange = e => {
     this.setState({ searchTerm: e.target.value });
@@ -130,14 +130,10 @@ class Users extends Component {
   };
 
   editUserSubmit = user => {
-    console.log(typeof user.id);
-    console.log(this.state.filteredUsers[user.id]);
     const filteredUsers = this.state.filteredUsers;
     filteredUsers[user.id] = user;
 
-    console.log(filteredUsers);
     this.setState({ filteredUsers: filteredUsers });
-    console.log(user);
   };
 
   deleteUser = user => {
@@ -147,7 +143,6 @@ class Users extends Component {
   };
 
   render() {
-    console.log(this.state.filteredUsers);
     const indexOfLastUser = this.state.currentPage * this.state.usersPerPage;
     const indexOfFirstUser = indexOfLastUser - this.state.usersPerPage;
     const useresfiltrados = this.state.filteredUsers;
@@ -156,8 +151,7 @@ class Users extends Component {
       indexOfLastUser
     );
 
-
-      /*=================View Mode=================== */
+    /*=================View Mode=================== */
 
     const checkViewMode = () => {
       if (this.state.viewMode === "cards") {
@@ -184,7 +178,13 @@ class Users extends Component {
             <Backdrop click={this.openModal} />
           </div>
         ) : null}
-        <UsersMain openModal={this.openModal} />
+        <UsersMain
+          deleteUser={this.deleteUser}
+          openModal={this.openModal}
+          filteredUsers={filteredUsers}
+          submitForm = {this.submitForm}
+          editUserSubmit={this.editUserSubmit}
+        />
 
         {/*=================Filters and Sorting=================== */}
 
@@ -231,9 +231,6 @@ class Users extends Component {
               Ordenar de Z-A
             </div>
           </div>
-
-
-
 
           {/*=================View Mode =================== */}
           <div className="filter-bar-right">

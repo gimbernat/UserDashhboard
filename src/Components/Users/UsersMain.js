@@ -8,6 +8,7 @@ export default class UsersMain extends Component {
     isModalShowing: false
   };
   openModal = () => {
+    console.log("opening modal")
     this.setState({ isModalShowing: !this.state.isModalShowing });
   };
 
@@ -17,7 +18,8 @@ export default class UsersMain extends Component {
         <React.Fragment>
           <Backdrop click={this.openModal} />
           <Modal
-            editMode={true}
+            editMode={false}
+            submitForm= {this.props.submitForm}
             editUserSubmit={this.props.editUserSubmit}
             openModal={this.props.openModal}
             closeModal={this.props.openModal}
@@ -29,14 +31,16 @@ export default class UsersMain extends Component {
   }
 
   render() {
+
     return (
       <section className="users-main">
+      {this.isModalShowing()}
         <div className="users-main-left container">
           <h1>Usuarios</h1>
           <p className="subtitle">Encuentra y Administra los Usuarios</p>
         </div>
         <div className="users-main-right">
-          <div onClick={this.props.openModal} className="button center shadow">
+          <div onClick={this.openModal} className="button center shadow">
             Agregar un Usuario
           </div>
         </div>
