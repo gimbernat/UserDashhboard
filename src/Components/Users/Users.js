@@ -11,16 +11,16 @@ import { FilterSection } from "./FilterSection";
 import { ReactComponent as Square } from "../../assets/svg/square.svg";
 import { ReactComponent as List } from "../../assets/svg/list.svg";
 
-class User {
-  constructor(picture, name, fathersLastName, mothersLastName, email, roleId) {
-    this.name = name;
-    this.fathersLastName = fathersLastName;
-    this.mothersLastName = mothersLastName;
-    this.email = email;
-    this.roleId = roleId;
-    // this.lastName = lname;
-  }
-}
+// class User {
+//   constructor(picture, name, fathersLastName, mothersLastName, email, roleId) {
+//     this.name = name;
+//     this.fathersLastName = fathersLastName;
+//     this.mothersLastName = mothersLastName;
+//     this.email = email;
+//     this.roleId = roleId;
+//     // this.lastName = lname;
+//   }
+// }
 
 function compare(a, b) {
   if (a.name < b.name) {
@@ -48,7 +48,6 @@ class Users extends Component {
   });
 
   state = {
-    isShowing: false,
     viewMode: "cards",
     searchTerm: "",
     users: this.mappedUsers,
@@ -63,9 +62,9 @@ class Users extends Component {
     this.setState({ modalOpen: !this.state.modalOpen });
   };
   closeModal = () => {
-    console.log("closing all the shit")
-    this.setState({modalOpens: false})
-  }
+    console.log("closing all the shit");
+    this.setState({ modalOpens: false });
+  };
 
   handleInputChange = e => {
     this.setState({ searchTerm: e.target.value });
@@ -111,7 +110,7 @@ class Users extends Component {
     this.includesCategory(e.target.value);
   };
 
-  /*=================View Mode And Pagination=================== */
+  /*=================Pagination=================== */
 
   paginate = pageNumber => {
     const pageNum = parseInt(pageNumber, 10);
@@ -124,30 +123,23 @@ class Users extends Component {
     this.setState({ usersPerPage: userCount });
   };
 
-  ////////////////// CRUD ///////////////
+  /*=================CRUD=================== */
 
   submitForm = userData => {
     this.setState({ filteredUsers: [...this.state.filteredUsers, userData] });
   };
 
-  editUserSubmit = (user) => {
-    console.log(typeof user.id)
-    console.log(this.state.filteredUsers[user.id])
-    const filteredUsers = this.state.filteredUsers
+  editUserSubmit = user => {
+    console.log(typeof user.id);
+    console.log(this.state.filteredUsers[user.id]);
+    const filteredUsers = this.state.filteredUsers;
+    filteredUsers[user.id] = user;
 
-
-    filteredUsers[user.id] = user
-
-   console.log(filteredUsers)
-  this.setState({filteredUsers: filteredUsers})
-    
-    console.log(user)
-
-
-  
+    console.log(filteredUsers);
+    this.setState({ filteredUsers: filteredUsers });
+    console.log(user);
   };
 
-  
   deleteUser = user => {
     console.log("Deleting" + user);
     const users = this.state.filteredUsers.filter(u => u.email !== user);
@@ -155,14 +147,18 @@ class Users extends Component {
   };
 
   render() {
-    console.log(this.state.filteredUsers)
+    console.log(this.state.filteredUsers);
     const indexOfLastUser = this.state.currentPage * this.state.usersPerPage;
     const indexOfFirstUser = indexOfLastUser - this.state.usersPerPage;
-    const useresfiltrados = this.state.filteredUsers
+    const useresfiltrados = this.state.filteredUsers;
     const filteredUsers = useresfiltrados.slice(
       indexOfFirstUser,
       indexOfLastUser
     );
+
+
+      /*=================View Mode=================== */
+
     const checkViewMode = () => {
       if (this.state.viewMode === "cards") {
         return (
@@ -235,6 +231,9 @@ class Users extends Component {
               Ordenar de Z-A
             </div>
           </div>
+
+
+
 
           {/*=================View Mode =================== */}
           <div className="filter-bar-right">

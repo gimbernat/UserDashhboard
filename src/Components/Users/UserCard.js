@@ -8,19 +8,21 @@ import "./UserCard.css";
 import Modal from "../../Ui/Modal";
 export class UserCard extends Component {
   state = {
-    isShowing: false
+    isModalShowing: false
   };
   openModal = () => {
-    this.setState({ isShowing: !this.state.isShowing });
+    this.setState({ isModalShowing: !this.state.isModalShowing });
   };
   
 
   isModalShowing() {
-    if (this.state.isShowing) {
+    if (this.state.isModalShowing) {
       return (
         <React.Fragment>
           <Backdrop click={this.openModal} />
           <Modal
+
+            editMode = {true}
             editUserSubmit={this.props.editUserSubmit}
             openModal={this.props.openModal}
             closeModal={this.props.openModal}

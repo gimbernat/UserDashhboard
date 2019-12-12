@@ -3,7 +3,7 @@ import "./Modal.css";
 
 export default class Modal extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.editMode,
     editMode: false, 
     userData: {
       name: "",
@@ -15,6 +15,7 @@ export default class Modal extends Component {
       id: "",
     }
   };
+
 
   componentDidMount() {
     if (this.props.userData) {
@@ -32,8 +33,6 @@ export default class Modal extends Component {
     }));
   };
 
-
-
   submitForm = () => {
     this.props.submitForm(this.state.userData);
     // this.props.openModal();
@@ -44,12 +43,9 @@ export default class Modal extends Component {
     // console.log(this.state.userData)
     // this.props.openModal()
   }
-
-
-
   render() {
 
-    
+    const submitMethod = this.state.editMode ? this.editUserSubmit : this.submitForm;
     return (
       <div className="Modal container ">
         <div className="modal-top">
@@ -119,7 +115,7 @@ export default class Modal extends Component {
           <div onClick={""} className="button">
             Cancelar
           </div>
-          <div onClick={this.editUserSubmit}className="button">
+          <div onClick={submitMethod}className="button">
             Enviar
           </div>
         </div>
