@@ -11,17 +11,6 @@ import { FilterSection } from "./FilterSection";
 import { ReactComponent as Square } from "../../assets/svg/square.svg";
 import { ReactComponent as List } from "../../assets/svg/list.svg";
 
-// class User {
-//   constructor(picture, name, fathersLastName, mothersLastName, email, roleId) {
-//     this.name = name;
-//     this.fathersLastName = fathersLastName;
-//     this.mothersLastName = mothersLastName;
-//     this.email = email;
-//     this.roleId = roleId;
-//     // this.lastName = lname;
-//   }
-// }
-
 function compare(a, b) {
   if (a.name < b.name) {
     return -1;
@@ -58,13 +47,9 @@ class Users extends Component {
     usersPerPage: 8
   };
 
-  // openModal = () => {
-  //   this.setState({ modalOpen: !this.state.modalOpen });
-  // };
-  // closeModal = () => {
-  //   console.log("closing all the shit");
-  //   this.setState({ modalOpens: false });
-  // };
+  // ========================================================
+  // Methods
+  // =======================================================
 
   handleInputChange = e => {
     this.setState({ searchTerm: e.target.value });
@@ -182,7 +167,7 @@ class Users extends Component {
           deleteUser={this.deleteUser}
           openModal={this.openModal}
           filteredUsers={filteredUsers}
-          submitForm = {this.submitForm}
+          submitForm={this.submitForm}
           editUserSubmit={this.editUserSubmit}
         />
 

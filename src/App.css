@@ -48,7 +48,7 @@ section {
 .button {
 
 
-  background-color: #fa6a00;
+  background-color: #2cc09b;
   border: none;
   border-radius: 2px;
   color: white;
@@ -64,6 +64,7 @@ section {
 }
 
 svg {
+  /* background-color:red; */
   color: #fa6a00;
   cursor: pointer;
   transform: scale(1.2);

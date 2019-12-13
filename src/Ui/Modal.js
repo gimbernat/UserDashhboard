@@ -3,48 +3,52 @@ import "./Modal.css";
 
 export default class Modal extends Component {
   state = {
-    editMode: this.props.editMode, 
+    editMode: this.props.editMode,
     userData: {
       name: "",
       fathersLastName: "",
       mothersLastName: "",
       roleId: "",
       email: "",
-      picture:"",
-      id: "",
+      picture: "",
+      id: ""
     }
   };
-
 
   componentDidMount() {
     if (this.props.userData) {
       this.setState({ userData: this.props.userData });
     }
   }
+
+  // =================Methods=======================
+
   handleChange = e => {
     const value = e.target.value;
     const name = e.target.name;
     this.setState(prevState => ({
       userData: {
-        ...prevState.userData, 
-        [name]: value 
+        ...prevState.userData,
+        [name]: value
       }
     }));
   };
 
   submitForm = () => {
     this.props.submitForm(this.state.userData);
-    // this.props.openModal();
+    this.props.toggleModal();
   };
 
   editUserSubmit = () => {
-    this.props.editUserSubmit(this.state.userData)
-    // console.log(this.state.userData)
-    // this.props.openModal()
-  }
+    this.props.editUserSubmit(this.state.userData);
+    this.props.toggleModal();
+  };
+
   render() {
-    console.log("Edit Mode: "+this.state.editMode)
-    const submitMethod = this.state.editMode ? this.editUserSubmit : this.submitForm;
+    console.log("Edit Mode: " + this.state.editMode);
+    const submitMethod = this.state.editMode
+      ? this.editUserSubmit
+      : this.submitForm;
     return (
       <div className="Modal container ">
         <div className="modal-top">
@@ -52,7 +56,11 @@ export default class Modal extends Component {
           <div className="modal-picture-section">
             <div>
               <h5>Foto de perfil</h5>
-              <img className="user-picture-lg" src={this.state.userData.picture} alt="Imágen" />
+              <img
+                className="user-picture-lg"
+                src={this.state.userData.picture}
+                alt="Imágen"
+              />
             </div>
             <div>
               <p>JPG, PNG | Tamaño mínimo de 300px x 300px </p>
@@ -111,10 +119,10 @@ export default class Modal extends Component {
           </div>
         </div>
         <div className="modal-bottom">
-          <div onClick={""} className="button">
+          <div onClick={this.props.toggleModal} className="button">
             Cancelar
           </div>
-          <div onClick={submitMethod}className="button">
+          <div onClick={submitMethod} className="button">
             Enviar
           </div>
         </div>

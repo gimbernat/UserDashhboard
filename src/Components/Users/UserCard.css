@@ -7,10 +7,11 @@
   
   .user-card {
     min-width: 200px;
+    width: 80%;
     position: relative;
     background: white;
-    display: inline-block;
-    width: 21%;
+  
+  
     height: 280px;
     border: 1px solid rgba(220, 220, 220, 0.562);
     margin: 15px;
