@@ -50,7 +50,7 @@ export default class Modal extends Component {
       ? this.editUserSubmit
       : this.submitForm;
     return (
-      <div className="Modal container ">
+      <div className="Modal container animated fadeIn">
         <div className="modal-top" >
           <h3>Agregar Nuevo Usuario</h3>
           <div className="modal-picture-section">

@@ -22,7 +22,7 @@ const UserTable = (props) => {
   });
 
   return (
-    <table>
+    <table className="animated fadeIn">
     <thead>
       <tr>
         <th></th>
