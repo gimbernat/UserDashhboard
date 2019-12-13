@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ReactComponent as Points } from "../../assets/svg/points.svg";
 import { ReactComponent as ToggleOn } from "../../assets/svg/toggle_on.svg";
+import { ReactComponent as ToggleOff } from "../../assets/svg/toggle_off.svg";
 import { ReactComponent as Trash } from "../../assets/svg/trash.svg";
 import { ReactComponent as Eye } from "../../assets/svg/eye.svg";
 import Backdrop from "./Backdrop/Backdrop";

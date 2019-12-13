@@ -37,7 +37,7 @@ class Users extends Component {
   });
 
   state = {
-    viewMode: "cards",
+    viewMode: "table",
     searchTerm: "",
     users: this.mappedUsers,
     filteredUsers: this.mappedUsers,
@@ -116,8 +116,8 @@ class Users extends Component {
 
   editUserSubmit = user => {
     const filteredUsers = this.state.filteredUsers;
+    console.log(filteredUsers[user.id])
     filteredUsers[user.id] = user;
-
     this.setState({ filteredUsers: filteredUsers });
   };
 
@@ -126,6 +126,13 @@ class Users extends Component {
     const users = this.state.filteredUsers.filter(u => u.email !== user);
     this.setState({ filteredUsers: users });
   };
+
+  toggleActive = user => {
+    const filteredUsers = this.state.filteredUsers;
+    console.log(filteredUsers[user.id] )
+    filteredUsers[user.id] = user;  // User that will be Edited
+    this.setState({ filteredUsers: filteredUsers });
+ }
 
   render() {
     const indexOfLastUser = this.state.currentPage * this.state.usersPerPage;
@@ -149,7 +156,7 @@ class Users extends Component {
           />
         );
       } else {
-        return <UserTable filteredUsers={filteredUsers} />;
+        return <UserTable filteredUsers={filteredUsers}      toggleActive={this.toggleActive} />;
       }
     };
 

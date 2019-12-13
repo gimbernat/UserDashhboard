@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Users from "./Components/Users/Users";
+import Users from "./Components/Users/";
 
 // import Sidebar from "./Ui/Sidebar";
 

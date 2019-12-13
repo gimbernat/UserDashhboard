@@ -4,10 +4,11 @@ import "./UserTable.css"
 
 const UserTable = (props) => {
   const mappedUsers = props.filteredUsers.map(user => {
-    const {picture,name,fathersLastName,mothersLastName,email,roleId,active} = user;   //Destructuring 
-   
+    const { picture,name,fathersLastName,mothersLastName,email,roleId,active} = user;   //Destructuring 
     return (
       <User
+
+          toggleActive={props.toggleActive}
           picture={picture}
           name={name}
           fathersLastName={fathersLastName}
