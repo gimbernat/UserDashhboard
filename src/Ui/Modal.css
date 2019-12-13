@@ -19,11 +19,7 @@
     grid-template-rows: 90% 10%;
   }
 
-  
-  .modal-top {
-  
-
-  }
+ 
   .modal-container {
     display: grid;
     grid-template-columns: 50% 1fr;
@@ -65,4 +61,14 @@
   .modal-bottom {
       /* background:black; */
       text-align: right;
+  }
+
+
+
+  .modal-top-right {
+    margin: auto;
+  }
+  
+  .modal-top-left {
+    margin: auto;
   }

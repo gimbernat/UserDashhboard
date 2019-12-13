@@ -51,18 +51,18 @@ export default class Modal extends Component {
       : this.submitForm;
     return (
       <div className="Modal container ">
-        <div className="modal-top">
+        <div className="modal-top" >
           <h3>Agregar Nuevo Usuario</h3>
           <div className="modal-picture-section">
-            <div>
-              <h5>Foto de perfil</h5>
+            <div className="modal-top-left">
+              <h5 className="text-center">Foto de perfil</h5>
               <img
-                className="user-picture-lg"
+                className="user-picture-modal"
                 src={this.state.userData.picture}
                 alt="Imágen"
               />
             </div>
-            <div>
+            <div className="modal-top-right">
               <p>JPG, PNG | Tamaño mínimo de 300px x 300px </p>
               <div className="button">Subir Foto</div>
             </div>

@@ -60,25 +60,5 @@ th {
   }
   
   
-  .user-picture {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    object-fit: cover;
-    line-height: 2;
-    margin-top: 5px
-  }
-  
-  .user-picture-lg {
-    border-radius: 50%;
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-    margin-top: 20px
-  }
-  
-  
-  
-  
-  
+
   

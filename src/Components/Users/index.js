@@ -37,7 +37,7 @@ class Users extends Component {
   });
 
   state = {
-    viewMode: "table",
+    viewMode: "cards",
     searchTerm: "",
     users: this.mappedUsers,
     filteredUsers: this.mappedUsers,
